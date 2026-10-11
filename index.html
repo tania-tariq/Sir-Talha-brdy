@@ -1,0 +1,826 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Dear Sir 🎂</title>
+
+<style>
+:root {
+  --gold: #f8d77c;
+  --gold-light: #fff0bd;
+  --bg: #100d1e;
+  --panel: #211831;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(ellipse at top, #493151 0%, transparent 60%),
+    linear-gradient(145deg, #100d20, #24142e 55%, #0c0a18);
+}
+
+section {
+  width: 100%;
+  padding: 70px 18px;
+  text-align: center;
+}
+
+.inner {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eyebrow {
+  margin-bottom: 20px;
+  color: var(--gold);
+  font: 12px/1.8 Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: clamp(42px, 8vw, 78px);
+  line-height: 1.15;
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-size: clamp(30px, 6vw, 46px);
+  line-height: 1.25;
+}
+
+.gold {
+  color: var(--gold);
+  text-shadow: 0 0 15px #ffd77835;
+}
+
+.line {
+  width: 100px;
+  height: 2px;
+  margin: 22px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+.subtitle {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  color: #e0d5e9;
+  font: 16px/1.8 Arial, sans-serif;
+}
+
+.btn {
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 25px;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(120deg, #fff0bd, #d6a744);
+  color: #26152a;
+  font: bold 14px Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(255, 215, 120, 0.25);
+  transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(255, 215, 120, 0.35);
+}
+
+.small-note {
+  margin-top: 18px;
+  color: #c5b6d2;
+  font: 12px/1.8 Arial, sans-serif;
+}
+
+/* GOLDEN BACKGROUND LIGHTS */
+#lights {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.light {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 12px 3px #ffd77877;
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; }
+  to { opacity: 1; }
+}
+
+/* RESPONSIVE BIRTHDAY PHOTOS */
+.photo-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  width: 100%;
+  margin-top: 35px;
+  align-items: stretch;
+}
+
+.photo-card {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #f8d77c66;
+  border-radius: 18px;
+  background: #ffffff09;
+  box-shadow: 0 12px 35px #00000020;
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+  background: transparent;
+  margin: 0 auto;
+}
+
+.photo-card p {
+  margin: 16px 4px 5px;
+  color: var(--gold);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* BIRTHDAY MESSAGE */
+.joke {
+  width: 100%;
+  max-width: 760px;
+  margin: 32px auto 0;
+  padding: 25px;
+  border: 1px solid #f8d77c55;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+  color: #eee4f4;
+  font: 15px/1.9 Arial, sans-serif;
+}
+
+/* RESPONSIVE PORTRAIT VIDEO */
+.video-frame {
+  width: min(100%, 390px);
+  margin: 30px auto;
+  padding: 7px;
+  border: 1px solid #f8d77c88;
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    #fff0bd,
+    #a77cba,
+    #d6a744
+  );
+  box-shadow: 0 0 30px #f8d77c30;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  background: #100d1e;
+  border-radius: 15px;
+}
+
+.caption {
+  width: 100%;
+  max-width: 650px;
+  margin: 22px auto 0;
+  color: #d9cde5;
+  font: 14px/1.9 Arial, sans-serif;
+}
+
+/* GIFT BOX */
+.gift-button {
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 30px auto 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  animation: floatGift 2.6s ease-in-out infinite;
+}
+
+@keyframes floatGift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.gift-box {
+  position: absolute;
+  inset: 0;
+}
+
+.gift-base {
+  position: absolute;
+  width: 130px;
+  height: 82px;
+  left: 10px;
+  bottom: 5px;
+  border-radius: 5px 5px 10px 10px;
+  background: linear-gradient(
+    90deg,
+    #9e6c2e,
+    #ffe4a0,
+    #b47c32
+  );
+}
+
+.gift-lid {
+  position: absolute;
+  width: 145px;
+  height: 27px;
+  left: 2px;
+  top: 37px;
+  border-radius: 5px;
+  background: linear-gradient(
+    90deg,
+    #b47c32,
+    #fff0b7,
+    #b47c32
+  );
+}
+
+.gift-ribbon {
+  position: absolute;
+  width: 25px;
+  height: 105px;
+  left: 62px;
+  top: 37px;
+  background: linear-gradient(
+    90deg,
+    #8e203c,
+    #ef7890,
+    #a32343
+  );
+}
+
+.bow {
+  position: absolute;
+  top: 14px;
+  left: 48px;
+  width: 55px;
+  height: 30px;
+  z-index: 2;
+}
+
+.bow::before,
+.bow::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 21px;
+  border: 7px solid #f18ca2;
+  border-radius: 50%;
+}
+
+.bow::before {
+  left: 0;
+  transform: rotate(25deg);
+}
+
+.bow::after {
+  right: 0;
+  transform: rotate(-25deg);
+}
+
+.gift-button:hover .gift-box {
+  filter: drop-shadow(0 0 16px #ffd77899);
+}
+
+.hint {
+  margin-top: 12px;
+  color: var(--gold);
+  font: 12px Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+/* GIFT REVEAL */
+.reveal {
+  display: none;
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+
+.reveal.show {
+  display: block;
+}
+
+/* TWO SURPRISE IMAGES: LEFT AND RIGHT */
+.surprise-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  max-width: 760px;
+  margin: 25px auto;
+  align-items: stretch;
+}
+
+.cake-photo {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 310px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  border: 2px solid var(--gold);
+  border-radius: 18px;
+  background: #ffffff08;
+  box-shadow: 0 0 25px #ffd77825;
+}
+
+/* FINAL BIRTHDAY MESSAGE */
+.message {
+  width: 100%;
+  margin: 28px auto 0;
+  padding: 28px;
+  border: 1px solid #f8d77c66;
+  border-radius: 18px;
+  background: #ffffff09;
+  color: #eee4f4;
+  font: 15px/2 Arial, sans-serif;
+}
+
+.signature {
+  margin-top: 22px;
+  color: var(--gold);
+  font: italic 20px Georgia, serif;
+}
+
+/* CONFETTI */
+#confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(105vh) rotate(600deg);
+    opacity: .15;
+  }
+}
+
+footer {
+  padding: 30px 15px 40px;
+  text-align: center;
+  color: #c5b6d2;
+  font: 12px/2 Arial, sans-serif;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+  section {
+    padding: 52px 15px;
+  }
+
+  .photo-list {
+    display: block;
+    gap: 22px;
+  }
+
+  .photo-card {
+    padding: 8px;
+    margin-bottom: 22px;
+  }
+
+  .photo-card img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    background: transparent;
+  }
+
+  .video-frame {
+    width: min(100%, 340px);
+    padding: 5px;
+  }
+
+  .joke,
+  .message {
+    padding: 20px 15px;
+    font-size: 14px;
+  }
+
+  .photo-card p {
+    font-size: 15px;
+  }
+
+  .eyebrow {
+    letter-spacing: 2px;
+  }
+
+  h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .subtitle,
+  .caption {
+    overflow-wrap: anywhere;
+  }
+
+  /* Both surprise photos remain side by side on mobile */
+  .surprise-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 22px auto;
+  }
+
+  .cake-photo {
+    width: 100%;
+    height: 220px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="lights" aria-hidden="true"></div>
+<div id="confetti" aria-hidden="true"></div>
+
+<!-- WELCOME SECTION -->
+<section class="hero" id="home">
+  <div class="eyebrow">A Special Day for a Special Teacher</div>
+
+  <h1>
+    Happy Birthday<br>
+    <span class="gold">Dear Sir!</span>
+  </h1>
+
+  <div class="line"></div>
+
+  <p class="subtitle">
+    To a wonderful teacher whose knowledge, kindness,
+    and guidance make a difference every day.
+    Today, we celebrate you and secretly pray for a birthday
+    without surprise assignments! 🎂😂
+  </p>
+
+  <button class="btn" onclick="goTo('memories')">
+    Begin the Celebration ✨
+  </button>
+
+  <p class="small-note">
+    Made with respect, gratitude and lots of birthday wishes
+  </p>
+</section>
+
+<!-- BIRTHDAY PHOTOS -->
+<section id="memories">
+  <div class="inner">
+    <div class="eyebrow">A Few Funny Little Glimpses of Sir</div>
+
+    <h2>
+      The <span class="gold">Legend</span> of Our Classroom 🎂
+    </h2>
+
+    <p class="subtitle">
+      Celebrating an amazing teacher who inspires us,
+      guides us, and somehow makes even lectures feel like a comedy show with life lessons.
+    </p>
+
+    <div class="photo-list">
+
+      <div class="photo-card">
+        <img
+          src="sir1.jpeg"
+          alt="Birthday celebration for our respected Sir"
+          loading="eager"
+        >
+        <p>🎂 Sir, our classroom king</p>
+      </div>
+
+      <div class="photo-card">
+        <img
+          src="sir2.jpeg"
+          alt="A special birthday memory for Sir"
+          loading="lazy"
+        >
+        <p>✨ The reason we smile in class</p>
+      </div>
+
+      <div class="photo-card">
+        <img
+          src="sir3.jpeg"
+          alt="Birthday wishes for our wonderful teacher"
+          loading="lazy"
+        >
+        <p>💛 The smile that makes learning fun</p>
+      </div>
+
+    </div>
+
+    <div class="joke">
+      <strong class="gold">
+        A Birthday Message for Sir Talha 💛
+      </strong>
+
+      <br><br>
+
+      Happy Birthday to an amazing teacher!
+      Thank you for guiding us with patience and inspiration.
+
+      <br><br>
+
+      May your life be full of happiness, success,
+      and a little break from assignments! 😂📚
+
+      <br><br>
+
+      <strong class="gold">
+        Happy Birthday, Sir! 🎉
+      </strong>
+    </div>
+  </div>
+</section>
+
+<!-- BIRTHDAY VIDEO -->
+<section id="video-section">
+  <div class="inner">
+    <div class="eyebrow">A Special Birthday Surprise</div>
+
+    <h2>
+      Made Especially for
+      <span class="gold">Sir</span> 🎬
+    </h2>
+
+    <p class="subtitle">
+      A little birthday surprise for our amazing teacher.
+    </p>
+
+    <div class="video-frame">
+      <video controls playsinline preload="metadata">
+        <source src="brdyvideo.mp4" type="video/mp4">
+        Your browser does not support this video.
+      </video>
+    </div>
+
+    <p class="caption">
+      <strong class="gold">Happy Birthday, Sir! 🎉💛</strong>
+    </p>
+  </div>
+</section>
+
+<!-- FINAL GIFT -->
+<section id="surprise">
+  <div class="inner">
+    <div class="eyebrow">One Last Surprise...</div>
+
+    <h2>
+      A Gift <span class="gold">For You</span> 🎁
+    </h2>
+
+    <p class="subtitle">
+      Tap the gift and enjoy the final surprise! 🎁
+    </p>
+
+    <button
+      class="gift-button"
+      id="giftButton"
+      onclick="openGift()"
+      aria-label="Open birthday gift"
+    >
+      <span class="gift-box">
+        <span class="bow"></span>
+        <span class="gift-lid"></span>
+        <span class="gift-base"></span>
+        <span class="gift-ribbon"></span>
+      </span>
+    </button>
+
+    <div class="hint" id="hint">
+      TAP THE GIFT TO OPEN ✨
+    </div>
+
+    <div class="reveal" id="reveal">
+      <div class="eyebrow">Surprise! It's Your Special Day!</div>
+
+      <h2>
+        Make a Wish,
+        <span class="gold">Dear Sir!</span> 🎂
+      </h2>
+
+      <!-- TWO SURPRISE PHOTOS -->
+      <div class="surprise-gallery">
+
+        <!-- LEFT IMAGE -->
+        <img
+          class="cake-photo"
+          src="surprise.jpeg"
+          alt="Birthday surprise photo 1"
+          loading="lazy"
+        >
+
+        <!-- RIGHT IMAGE -->
+        <img
+          class="cake-photo"
+          src="brdy3.jpeg"
+          alt="Birthday surprise photo 2"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="message">
+        🎉 <strong class="gold">Happy Birthday, Sir!</strong> 🎉
+        <br><br>
+        Thank you for guiding us with patience, wisdom, and a smile.
+        <br><br>
+        May your year be full of joy, success, and zero assignment stress! 😄
+        <br><br>
+        <strong class="gold">You deserve the very best, Sir.</strong>
+
+        <div class="signature">
+          With love and respect ❤️
+        </div>
+      </div>
+
+      <button class="btn" onclick="celebrateAgain()">
+        Celebrate Again! 🎉
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made especially for our respected Sir 💛
+  <br>
+  A little website, a lot of appreciation.
+</footer>
+
+<script>
+/* BACKGROUND GOLDEN LIGHTS */
+const lights = document.getElementById("lights");
+
+for (let i = 0; i < 55; i++) {
+  const light = document.createElement("span");
+
+  light.className = "light";
+  light.style.left = Math.random() * 100 + "%";
+  light.style.top = Math.random() * 100 + "%";
+  light.style.animationDelay = (-Math.random() * 3) + "s";
+
+  lights.appendChild(light);
+}
+
+/* SMOOTH SCROLLING */
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+/* BIRTHDAY CONFETTI */
+function celebrate() {
+  const layer = document.getElementById("confetti");
+
+  const colors = [
+    "#f8d77c",
+    "#fff0bd",
+    "#f18ca2",
+    "#c8a6ff",
+    "#ffffff",
+    "#8ee7d0"
+  ];
+
+  for (let i = 0; i < 100; i++) {
+    const piece = document.createElement("span");
+
+    piece.className = "confetti-piece";
+    piece.textContent = Math.random() > 0.5 ? "✦" : "●";
+    piece.style.left = Math.random() * 100 + "%";
+    piece.style.color =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    piece.style.animationDelay = Math.random() * 1.2 + "s";
+    piece.style.animationDuration =
+      (3 + Math.random() * 2) + "s";
+
+    layer.appendChild(piece);
+
+    setTimeout(() => piece.remove(), 6000);
+  }
+}
+
+/* OPEN GIFT ONLY ONCE */
+let giftOpened = false;
+
+function openGift() {
+  if (giftOpened) return;
+
+  giftOpened = true;
+
+  document.getElementById("giftButton").hidden = true;
+
+  document.getElementById("hint").textContent =
+    "YOUR SURPRISE IS HERE! 💛";
+
+  document.getElementById("reveal").classList.add("show");
+
+  celebrate();
+
+  setTimeout(() => {
+    document.getElementById("reveal").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 100);
+}
+
+/* CELEBRATE AGAIN */
+function celebrateAgain() {
+  celebrate();
+}
+</script>
+
+</body>
+</html>
